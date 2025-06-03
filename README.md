@@ -1,5 +1,7 @@
 cd build
+
 ./dreamcast.sh
+
 [100%] Built target libzstd_static
 Installing ZSTD to /opt/toolchains/dc/kos/addons...
 -- Install configuration: "Release"
