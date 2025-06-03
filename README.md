@@ -1,7 +1,7 @@
+<pre><code>
 cd build
-
 ./dreamcast.sh
-
+[100%] Linking C static library libzstd.a
 [100%] Built target libzstd_static
 Installing ZSTD to /opt/toolchains/dc/kos/addons...
 -- Install configuration: "Release"
@@ -13,7 +13,7 @@ Installing ZSTD to /opt/toolchains/dc/kos/addons...
 -- Installing: /opt/toolchains/dc/kos/addons/include/zstd/zdict.h
 -- Installing: /opt/toolchains/dc/kos/addons/include/zstd/zstd.h
 -- Installing: /opt/toolchains/dc/kos/addons/include/zstd/zstd_errors.h
--- Installing: /opt/toolchains/dc/kos/addons/lib/dreamcast/libzstd.a
+-- Installing: /opt/toolchains/dc/kos/addons/lib/dreamcast/libzstd.a</code></pre>
 
 
 <p align="center"><img src="https://raw.githubusercontent.com/facebook/zstd/dev/doc/images/zstd_logo86.png" alt="Zstandard"></p>
