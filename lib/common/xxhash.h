@@ -2357,7 +2357,12 @@ extern "C" {
  */
 static void* XXH_memcpy(void* dest, const void* src, size_t size)
 {
-    return memcpy(dest,src,size);
+#ifdef DREAMCAST
+ #include <fastmem/fastmem.h>
+    return memcpy_fast(dest, src, size);
+#else
+    return memcpy(dest, src, size);
+#endif
 }
 
 #if defined (__cplusplus)

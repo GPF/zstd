@@ -40,14 +40,24 @@
 #include <stddef.h>
 #include <string.h>
 
-#if defined(__GNUC__) && __GNUC__ >= 4
-# define ZSTD_memcpy(d,s,l) __builtin_memcpy((d),(s),(l))
-# define ZSTD_memmove(d,s,l) __builtin_memmove((d),(s),(l))
-# define ZSTD_memset(p,v,l) __builtin_memset((p),(v),(l))
+#ifdef DREAMCAST
+ #include <fastmem/fastmem.h>
+  #undef ZSTD_memcpy
+  #undef ZSTD_memmove
+  #undef ZSTD_memset
+  #define ZSTD_memcpy(d,s,n) memcpy_fast((d),(s),(n))
+  #define ZSTD_memmove(d,s,n) memmove_fast((d),(s),(n))
+  #define ZSTD_memset(d,s,n) memset_fast((d),(s),(n))
 #else
-# define ZSTD_memcpy(d,s,l) memcpy((d),(s),(l))
-# define ZSTD_memmove(d,s,l) memmove((d),(s),(l))
-# define ZSTD_memset(p,v,l) memset((p),(v),(l))
+  #if defined(__GNUC__) && __GNUC__ >= 4
+    #define ZSTD_memcpy(d,s,l) __builtin_memcpy((d),(s),(l))
+    #define ZSTD_memmove(d,s,l) __builtin_memmove((d),(s),(l))
+    #define ZSTD_memset(p,v,l) __builtin_memset((p),(v),(l))
+  #else
+    #define ZSTD_memcpy(d,s,l) memcpy((d),(s),(l))
+    #define ZSTD_memmove(d,s,l) memmove((d),(s),(l))
+    #define ZSTD_memset(p,v,l) memset((p),(v),(l))
+  #endif
 #endif
 
 #endif /* ZSTD_DEPS_COMMON */

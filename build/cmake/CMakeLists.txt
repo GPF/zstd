@@ -82,6 +82,13 @@ if (APPLE)
     option(ZSTD_FRAMEWORK "Build as Apple Frameworks" OFF)
 endif ()
 
+# Enable Dreamcast build hooks
+if(CMAKE_SYSTEM_NAME MATCHES "Dreamcast" )
+    message(STATUS "Building Zstd for Dreamcast (KOS)")
+    add_definitions(-DDREAMCAST=1)
+    include_directories("/opt/toolchains/dc/kos-ports/include/") #path to libfastmem
+endif()
+
 if (ANDROID)
     set(ZSTD_MULTITHREAD_SUPPORT_DEFAULT OFF)
     # Old versions of bionic libc don't have fseeko/ftello

@@ -5,7 +5,7 @@ mkdir -p "$BUILD_DIR"
 
 # Configure with CMake
 echo "Configuring ZSTD for Dreamcast..."
-kos-cmake -S "$SCRIPT_DIR" \
+kos-cmake -S "$SCRIPT_DIR"\
       -B "$BUILD_DIR" \
       -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
     -DCMAKE_INSTALL_PREFIX="${KOS_BASE}/addons" \
@@ -20,10 +20,8 @@ kos-cmake -S "$SCRIPT_DIR" \
       -DZSTD_BUILD_STATIC=ON \
       -DZSTD_BUILD_TESTS=OFF \
       -DZSTD_LEGACY_SUPPORT=OFF \
-      -DZSTD_LZ4_SUPPORT=OFF \
-      -DZSTD_LZMA_SUPPORT=OFF \
-      -DZSTD_ZLIB_SUPPORT=OFF \
       -DZSTD_MULTITHREAD_SUPPORT=OFF
+  
 
 # Build
 echo "Building ZSTD..."
