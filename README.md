@@ -15,6 +15,8 @@ Installing ZSTD to /opt/toolchains/dc/kos/addons...
 -- Installing: /opt/toolchains/dc/kos/addons/include/zstd/zstd_errors.h
 -- Installing: /opt/toolchains/dc/kos/addons/lib/dreamcast/libzstd.a</code></pre>
 
+now builds with kos-ports libfastmem, so need to link to -lzstd -lfastmem
+
 
 <p align="center"><img src="https://raw.githubusercontent.com/facebook/zstd/dev/doc/images/zstd_logo86.png" alt="Zstandard"></p>
 
